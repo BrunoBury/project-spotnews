@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Página Inicial{% endblock title %}
+
+{% block content %}
+<div class="news-container">
+    {% for news in news_list %}
+        <div class="news-card">
+            <h2 class="news-title">{{ news.title }}</h2>
+            <span class="news-date">{{ news.created_at|date:"d/m/Y" }}</span>
+            <img src="/static{{ news.image.url }}" alt="{{ news.title }}">
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
