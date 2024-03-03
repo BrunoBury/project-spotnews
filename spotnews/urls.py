@@ -20,12 +20,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from news.views import news_details
+from news.views import category_create, news_details
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("news.urls")),
     path("news/<int:id>/", news_details, name="news-details-page"),
+    path("categories/", category_create, name="categories-form"),
 ]
 
 if settings.DEBUG:
