@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Formulário para Nova Notícia</title>
+{% endblock %}
+
+{% block content %}
+<div class="news-form-container">
+  <form method="post" action="{% url 'news-form' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="id_title">Título:</label>
+    {{ form.title }}
+    <label for="id_content">Conteúdo:</label>
+    {{ form.content }}
+    <label for="id_author">Autoria:</label>
+    {{ form.author }}
+    <label for="id_created_at">Criado em:</label>
+    {{ form.created_at }}
+    <label for="id_image">URL da Imagem:</label>
+    {{ form.image }}
+    <label for="id_categories">Categorias:</label>
+    {{ form.categories }}
+    <button type="submit">Salvar</button>
+  </form>
+</div>
+{% endblock %}
